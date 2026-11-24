@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranav Poluri | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050816;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #00e5ff;
+    filter: blur(180px);
+    opacity: 0.12;
+    top: -150px;
+    left: -150px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #8b5cf6;
+    filter: blur(180px);
+    opacity: 0.15;
+    bottom: -100px;
+    right: -100px;
+    z-index: -1;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    border-bottom: 1px solid #1e293b;
+    background: rgba(5, 8, 22, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00e5ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00e5ff;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.tag {
+    color: #00e5ff;
+    border: 1px solid #00e5ff;
+    padding: 9px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 75px);
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+    font-size: clamp(18px, 3vw, 27px);
+    margin: 15px 0;
+    color: #cbd5e1;
+}
+
+.hero p {
+    color: #94a3b8;
+    max-width: 550px;
+    line-height: 1.8;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 30px;
+    border-radius: 30px;
+    background: #00e5ff;
+    color: #050816;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #00e5ff;
+}
+
+/* General Sections */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 45px;
+    color: #00e5ff;
+}
+
+/* About */
+.about-card {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid #1e4960;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 2;
+    color: #cbd5e1;
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    border-color: #00e5ff;
+    box-shadow: 0 0 25px #00e5ff22;
+}
+
+/* Education */
+.timeline {
+    max-width: 750px;
+    margin: auto;
+    border-left: 2px solid #00e5ff;
+    padding-left: 30px;
+}
+
+.education-card {
+    position: relative;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #26374f;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.education-card::before {
+    content: "";
+    position: absolute;
+    left: -39px;
+    top: 28px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #00e5ff;
+    box-shadow: 0 0 15px #00e5ff;
+}
+
+.education-card:hover {
+    transform: translateX(10px);
+    border-color: #00e5ff;
+}
+
+.education-card h3 {
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+.education-card p {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* Skills */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.skill {
+    padding: 30px 15px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #26374f;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 19px;
+    color: #00e5ff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+    border-color: #00e5ff;
+    box-shadow: 0 0 25px #00e5ff33;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero > * {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Responsive */
+@media(max-width: 600px) {
+    nav {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .section-title {
+        font-size: 29px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">PP.</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+    </div>
+</nav>
+
+<!-- Home -->
+<div class="hero" id="home">
+    <div class="tag">WELCOME TO MY PORTFOLIO</div>
+
+    <h1>PRANAV POLURI</h1>
+
+    <h2>Future Software Engineer</h2>
+
+    <p>
+        Hello! I am Pranav Poluri, a passionate B.Tech
+        Computer Science student who loves technology,
+        programming and creativity.
+    </p>
+
+    <a href="#about" class="btn">Explore My Profile</a>
+</div>
+
+<!-- About -->
+<section id="about">
+    <h2 class="section-title">ABOUT ME</h2>
+
+    <div class="about-card">
+        <p>
+            I am <strong style="color:#00e5ff;">Pranav Poluri</strong>,
+            currently pursuing my first year of B.Tech
+            at Vignan University.
+        </p>
+
+        <p>
+            I am interested in programming, creative editing
+            and learning new technologies.
+            I continuously work on improving my technical skills.
+        </p>
+    </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+    <h2 class="section-title">MY EDUCATION</h2>
+
+    <div class="timeline">
+
+        <div class="education-card">
+            <h3>10th SSC</h3>
+            <p>2023 – 2024</p>
+            <p>Sri Chaitanya</p>
+        </div>
+
+        <div class="education-card">
+            <h3>Intermediate</h3>
+            <p>2024 – 2026</p>
+            <p>SR Junior College</p>
+        </div>
+
+        <div class="education-card">
+            <h3>Bachelor of Technology</h3>
+            <p>2026 – 2030</p>
+            <p>Vignan University</p>
+            <p style="color:#00e5ff;">
+                Currently Pursuing B.Tech 1st Year
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+    <h2 class="section-title">MY SKILLS</h2>
+
+    <div class="skills-container">
+
+        <div class="skill">💻 C Programming</div>
+
+        <div class="skill">🐍 Python</div>
+
+        <div class="skill">🎬 Video Editing</div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    © 2026 Pranav Poluri | Personal Portfolio
+</footer>
+
+</body>
+</html>
